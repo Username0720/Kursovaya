@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище hospitalModel" Provider="Npgsql" ProviderManifestToken="12.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="doctor">
+          <Key>
+            <PropertyRef Name="id_doctor" />
+          </Key>
+          <Property Name="id_doctor" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="surname" Type="text" Nullable="false" />
+          <Property Name="name" Type="text" Nullable="false" />
+          <Property Name="number" Type="bpchar" MaxLength="11" />
+          <Property Name="hours" Type="int4" />
+          <Property Name="login" Type="text" Nullable="false" />
+          <Property Name="pas" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id_fb" />
+          </Key>
+          <Property Name="id_fb" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pacient" Type="int4" Nullable="false" />
+          <Property Name="id_doctor" Type="int4" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="otchet_zp">
+          <Key>
+            <PropertyRef Name="id_ozp" />
+          </Key>
+          <Property Name="id_ozp" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_doctor" Type="int4" Nullable="false" />
+          <Property Name="data_ozp" Type="date" Nullable="false" />
+          <Property Name="hours" Type="int4" Nullable="false" />
+          <Property Name="zp" Type="int4" />
+          <Property Name="description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pacient">
+          <Key>
+            <PropertyRef Name="id_pacient" />
+          </Key>
+          <Property Name="id_pacient" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_doctor" Type="int4" />
+          <Property Name="surname" Type="text" />
+          <Property Name="name" Type="text" />
+          <Property Name="number" Type="bpchar" MaxLength="11" />
+          <Property Name="polis" Type="bpchar" MaxLength="16" />
+          <Property Name="passport" Type="bpchar" MaxLength="10" />
+          <Property Name="addres" Type="text" />
+          <Property Name="status" Type="text" />
+          <Property Name="login" Type="text" Nullable="false" />
+          <Property Name="pas" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Хранилище hospitalModelContainer">
+          <EntitySet Name="doctor" EntityType="Self.doctor" Schema="public" store:Type="Tables" />
+          <EntitySet Name="feedback" EntityType="Self.feedback" Schema="public" store:Type="Tables" />
+          <EntitySet Name="otchet_zp" EntityType="Self.otchet_zp" Schema="public" store:Type="Tables" />
+          <EntitySet Name="pacient" EntityType="Self.pacient" Schema="public" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="hospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="doctor">
+          <Key>
+            <PropertyRef Name="id_doctor" />
+          </Key>
+          <Property Name="id_doctor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="number" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="hours" Type="Int32" />
+          <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id_fb" />
+          </Key>
+          <Property Name="id_fb" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pacient" Type="Int32" Nullable="false" />
+          <Property Name="id_doctor" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="otchet_zp">
+          <Key>
+            <PropertyRef Name="id_ozp" />
+          </Key>
+          <Property Name="id_ozp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_doctor" Type="Int32" Nullable="false" />
+          <Property Name="data_ozp" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="hours" Type="Int32" Nullable="false" />
+          <Property Name="zp" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pacient">
+          <Key>
+            <PropertyRef Name="id_pacient" />
+          </Key>
+          <Property Name="id_pacient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_doctor" Type="Int32" />
+          <Property Name="surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="number" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="polis" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="passport" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="addres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="hospitalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="doctor" EntityType="Self.doctor" />
+          <EntitySet Name="feedback" EntityType="Self.feedback" />
+          <EntitySet Name="otchet_zp" EntityType="Self.otchet_zp" />
+          <EntitySet Name="pacient" EntityType="Self.pacient" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище hospitalModelContainer" CdmEntityContainer="hospitalEntities">
+          <EntitySetMapping Name="doctor">
+            <EntityTypeMapping TypeName="hospitalModel.doctor">
+              <MappingFragment StoreEntitySet="doctor">
+                <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="hours" ColumnName="hours" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="pas" ColumnName="pas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feedback">
+            <EntityTypeMapping TypeName="hospitalModel.feedback">
+              <MappingFragment StoreEntitySet="feedback">
+                <ScalarProperty Name="id_fb" ColumnName="id_fb" />
+                <ScalarProperty Name="id_pacient" ColumnName="id_pacient" />
+                <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="otchet_zp">
+            <EntityTypeMapping TypeName="hospitalModel.otchet_zp">
+              <MappingFragment StoreEntitySet="otchet_zp">
+                <ScalarProperty Name="id_ozp" ColumnName="id_ozp" />
+                <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
+                <ScalarProperty Name="data_ozp" ColumnName="data_ozp" />
+                <ScalarProperty Name="hours" ColumnName="hours" />
+                <ScalarProperty Name="zp" ColumnName="zp" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacient">
+            <EntityTypeMapping TypeName="hospitalModel.pacient">
+              <MappingFragment StoreEntitySet="pacient">
+                <ScalarProperty Name="id_pacient" ColumnName="id_pacient" />
+                <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="polis" ColumnName="polis" />
+                <ScalarProperty Name="passport" ColumnName="passport" />
+                <ScalarProperty Name="addres" ColumnName="addres" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="pas" ColumnName="pas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
