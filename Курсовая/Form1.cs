@@ -24,34 +24,9 @@ namespace Курсовая
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            /*if ()
-            {
-                Form3 f3 = new Form3();
-                f3.Owner = this;
-                f3.Show();
-            }*/
-
-            if (textBox1.Text == "admin" && textBox2.Text == "admin")
-            {
-                Form6 f6 = new Form6();
-                f6.Owner = this;
-                f6.Show();
-            }
-
-            if (textBox1.Text == "buhgalter" && textBox2.Text == "buhgalter")
-            {
-                Form5 f5 = new Form5();
-                f5.Owner = this;
-                f5.Show();
-            }
-
-            else
-            {
-                label4.Visible = true;
-                textBox1.Text = "";
-                textBox2.Text = "";
-            }
+            string login = textBox1.Text;
+            string pas = textBox2.Text;
+            Autorization user = new Autorization(login, pas);
         }
 
         private void button2_Click(object sender, EventArgs e)

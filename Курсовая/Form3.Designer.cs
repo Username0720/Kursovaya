@@ -163,6 +163,8 @@
             this.button5.TabIndex = 9;
             this.button5.Text = "Внести данные";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form3
             // 
