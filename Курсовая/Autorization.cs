@@ -14,7 +14,7 @@ namespace Курсовая
         public string pas { get; set; }
 
         public static hospitalEntities db = new hospitalEntities();
-        Form1 f1 = new Form1();
+        LoginForm f1 = new LoginForm();
 
         public Autorization(string login, string pas)
         {
@@ -35,104 +35,63 @@ namespace Курсовая
             if (login == "admin" && pas == "admin")
             {
                 check = true;
-                Form6 f6 = new Form6();
+                AdminForm f6 = new AdminForm();
                 f6.Show();
             }
 
             else if (login == "buhgalter" && pas == "buhgalter")
             {
                 check = true;
-                Form5 f5 = new Form5();
+                BuhgalterForm f5 = new BuhgalterForm();
                 f5.Show();
             }
 
             else
             {
-
-                StreamReader p = new StreamReader(@"pacients.txt");
+                List<pacient> query = (from p in db.pacient
+                                       select p).ToList();
+                StreamReader pac = new StreamReader(@"pacients.txt");
                 string str;
-                while ((str = p.ReadLine()) != null)
+                int i;
+                while ((str = pac.ReadLine()) != null)
                 {
 
                     Autorization user = new Autorization(str);
                     if ((user.login == this.login) && (user.pas == this.pas))
                     {
                         check = true;
-                        Form3 f3 = new Form3();
+                        pacient item = query.First(w => w.login.ToString() == login);
+                        PacientsForm f3 = new PacientsForm(item);
                         f3.Show();
                         break;
                     }
                 }
-                p.Close();
+                pac.Close();
 
-                StreamReader d = new StreamReader(@"doctors.txt");
+
+                List<doctor> query1 = (from d in db.doctor
+                                       select d).ToList();
+                StreamReader doc = new StreamReader(@"doctors.txt");
                 string str1;
-                while ((str1 = d.ReadLine()) != null)
+                int ii;
+                while ((str1 = doc.ReadLine()) != null)
                 {
-
                     Autorization user = new Autorization(str1);
                     if ((user.login == this.login) && (user.pas == this.pas))
                     {
                         check = true;
-                        Form3 f3 = new Form3();
-                        f3.Show();
+                        doctor item = query1.First(w => w.login.ToString() == login);
+                        DoctorsForm f8 = new DoctorsForm(item);
+                        f8.Show();
                         break;
                     }
                 }
-                d.Close();
+                doc.Close();
             }//else
 
             if (!check) MessageBox.Show("Неверный логин и/или пароль");
 
         }//CheckUser
-
-        public bool CheckFill()
-        {
-            var pacients = (from p in db.pacient
-                            where p.login == login
-                            select new { p.name, p.surname, p.number, p.polis, p.passport, p.addres, p.status }).ToString();
-            var doctors = (from d in db.doctor
-                           where d.login == login
-                           select new { d.name, d.surname, d.number, d.hours }).ToString();
-            if (pacients != null)
-                return true;
-            else return false;
-        }
-
-        public string FillingForm()
-        {
-            string name, surname, number, polis, passport, addres, status, hours;
-
-            var pacients = (from p in db.pacient
-                            where p.login == login
-                            select new { p.name, p.surname, p.number, p.polis, p.passport, p.addres, p.status}).ToList();
-            var doctors = (from d in db.doctor
-                            where d.login == login
-                            select new { d.name, d.surname, d.number, d.hours }).ToList();
-
-            string[] array = pacients.Split(',');
-
-            if (pacients == null)
-            {
-                array = doctors.Split(',');
-                name = array[0];
-                surname = array[1];
-                number = array[2];
-                hours = array[3];
-                return name + surname + number + hours;
-            }
-            else
-            {
-                name = array[0];
-                surname = array[1];
-                number = array[2];
-                polis = array[3];
-                passport = array[4];
-                addres = array[5];
-                status = array[6];
-                return name + surname + number + polis + passport + addres + status;
-            }
-        }
 
     }
 }

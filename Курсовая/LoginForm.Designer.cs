@@ -1,6 +1,6 @@
 ﻿namespace Курсовая
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
