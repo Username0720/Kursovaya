@@ -17,8 +17,31 @@ namespace Курсовая
             InitializeComponent();
             if (textBox1.Text == "")
             {
-                button5.Visible = true;
+                button5.Visible = false;
             }
+
+            Form1 f1 = new Form1();
+
+            Autorization user = new Autorization(f1.log, f1.pass);
+            textBox6.Text = user.FillingForm();
+            //user.FillingForm();
+            /*string[] array = user.FillingForm().Split(',');
+            if (user.CheckFill() == true)
+            {
+                textBox1.Text = array[0] + array[1];
+                textBox2.Text = array[2];
+                textBox3.Text = array[3];
+                textBox4.Text = array[4];
+                textBox5.Text = array[5];
+                textBox6.Text = array[6];
+            }
+            else
+            {
+                textBox1.Text = array[0] + array[1];
+                textBox2.Text = array[2];
+                textBox3.Text = array[7];
+            }*/
+
         }
 
         private void button1_Click(object sender, EventArgs e)
