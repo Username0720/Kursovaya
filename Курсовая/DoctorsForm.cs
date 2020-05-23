@@ -25,6 +25,8 @@ namespace Курсовая
             textBox2.Text = item.number.ToString();
             textBox3.Text = item.hours.ToString();
 
+            FillForm show = new FillForm();
+
             pacients = (from p in db.pacient
                         select p).ToList();
 

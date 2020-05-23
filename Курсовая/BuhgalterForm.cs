@@ -14,30 +14,39 @@ namespace Курсовая
     {
         public hospitalEntities db = new hospitalEntities();
         public List<doctor> doctors = new List<doctor>();
-        public List<feedback> feedbacks = new List<feedback>();
 
         public BuhgalterForm()
         {
             InitializeComponent();
-
-            doctors = (from d in db.doctor
-                       select d).ToList();
-
-            var query = (from d in doctors
-                         orderby d.id_doctor
-                         select new { d.id_doctor, d.surname, d.name, d.number, d.hours}).ToList();
-
-            dataGridView1.DataSource = query;
-            dataGridView1.ReadOnly = true;
-
-            dataGridView1.Columns[0].HeaderText = "Идентификатор";
-            dataGridView1.Columns[1].HeaderText = "Фамилия";
-            dataGridView1.Columns[2].HeaderText = "Имя";
-            dataGridView1.Columns[3].HeaderText = "Номер";
-            dataGridView1.Columns[4].HeaderText = "Количество отработанных часов";
+            FillForm show = new FillForm();
+            show.FillDoctors(dataGridView1);
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.Count == 2)
+            {
+                //doctor item = query.First(w => w.surname.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                //otchet_zp zp = query.First(w => w.surname.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                //AddSalaryForm s = new AddSalaryForm();
+                //s.Owner = this;
+                //s.Show();
+            }
+            else Application.OpenForms[2].Focus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.Count == 2)
+            {
+                //AddSalaryForm s = new AddSalaryForm();
+                //s.Owner = this;
+                //s.Show();
+            }
+            else Application.OpenForms[2].Focus();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.Count == 2)
             {
@@ -46,16 +55,6 @@ namespace Курсовая
                 r.Show();
             }
             else Application.OpenForms[2].Focus();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void dataGridView1_MouseDown(object sender, MouseEventArgs e)

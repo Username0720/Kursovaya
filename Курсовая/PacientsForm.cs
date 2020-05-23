@@ -43,7 +43,7 @@ namespace Курсовая
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form4 f4 = new Form4();
+            SelectDoctorForm f4 = new SelectDoctorForm();
             f4.Owner = this;
             f4.ShowDialog();
         }
