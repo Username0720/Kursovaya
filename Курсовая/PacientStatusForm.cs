@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace Курсовая
 {
-    public partial class AppointmentForm : Form
+    public partial class PacientStatusForm : Form
     {
         public hospitalEntities db = new hospitalEntities();
-        doctor item;
+        pacient item;
 
-        public AppointmentForm(doctor doc)
+        public PacientStatusForm(pacient pac)
         {
-            item = doc;
+            item = pac;
             InitializeComponent();
-            textBox1.Text = item.name + " " + item.surname;
-            textBox2.Text = item.number;
+            textBox1.Text = item.status.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,10 +29,9 @@ namespace Курсовая
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var result = ((SelectDoctorForm)Owner).db.pacient.SingleOrDefault(w => w.id_doctor == item.id_doctor);
-            result.id_doctor = item.id_doctor;
-
-            ((SelectDoctorForm)Owner).pacients = ((SelectDoctorForm)Owner).db.pacient.OrderBy(o => o.id_pacient).ToList();
+            var result = ((DoctorsForm)Owner).db.pacient.SingleOrDefault(w => w.id_pacient == item.id_pacient);
+            result.status = item.status;
+            ((DoctorsForm)Owner).pacients = ((DoctorsForm)Owner).db.pacient.OrderBy(o => o.id_pacient).ToList();
 
             this.Close();
         }

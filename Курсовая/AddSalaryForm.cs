@@ -13,16 +13,13 @@ namespace Курсовая
     public partial class AddSalaryForm : Form
     {
         public hospitalEntities db = new hospitalEntities();
-        doctor item;
         otchet_zp otchet;
 
-        public AddSalaryForm(doctor doc, otchet_zp zp)
+        public AddSalaryForm(otchet_zp zp)
         {
-            item = doc;
             otchet = zp;
             InitializeComponent();
             textBox1.Text = otchet.id_doctor.ToString();
-            textBox2.Text = item.name.ToString() + " " + item.surname.ToString();
             textBox3.Text = otchet.data_ozp.ToString();
             textBox4.Text = otchet.hours.ToString();
             textBox5.Text = otchet.zp.ToString();
@@ -35,7 +32,18 @@ namespace Курсовая
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var result = ((BuhgalterForm)Owner).db.otchet_zp.SingleOrDefault(w => w.id_ozp == otchet.id_ozp);
+                result.id_doctor = Int32.Parse(textBox1.Text.ToString());
+                result.data_ozp = DateTime.Parse(textBox3.Text.ToString());
+                result.hours = Int32.Parse(textBox4.Text.ToString());
+                result.hours = Int32.Parse(textBox5.Text.ToString());
+                result.description = textBox6.Text.ToString();
 
+                ((BuhgalterForm)Owner).zp = ((BuhgalterForm)Owner).db.otchet_zp.OrderBy(o => o.id_ozp).ToList();
+            }
+            catch (Exception ee) { MessageBox.Show(ee.Message); }
         }
 
         private void button2_Click(object sender, EventArgs e)

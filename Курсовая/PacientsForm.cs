@@ -18,19 +18,16 @@ namespace Курсовая
         {
             item = pac;
             InitializeComponent();
-
-            textBox1.Text = item.surname.ToString() + " " + item.name.ToString();
-            textBox2.Text = item.number.ToString();
-            textBox3.Text = item.polis.ToString();
-            textBox4.Text = item.passport.ToString();
-            textBox5.Text = item.addres.ToString();
-            textBox6.Text = item.status.ToString();
-
-            if (textBox1.Text == "")
+            try
             {
-                button5.Visible = true;
+                textBox1.Text = item.surname.ToString() + " " + item.name.ToString();
+                textBox2.Text = item.number.ToString();
+                textBox3.Text = item.polis.ToString();
+                textBox4.Text = item.passport.ToString();
+                textBox5.Text = item.addres.ToString();
+                textBox6.Text = item.status.ToString();
             }
-
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,16 +43,6 @@ namespace Курсовая
             SelectDoctorForm f4 = new SelectDoctorForm();
             f4.Owner = this;
             f4.ShowDialog();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -147,6 +147,12 @@
     <Compile Include="AddSalaryForm.Designer.cs">
       <DependentUpon>AddSalaryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedbackForm.Designer.cs">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FillForm.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -165,6 +171,12 @@
     </Compile>
     <Compile Include="PacientsForm.Designer.cs">
       <DependentUpon>PacientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PacientStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacientStatusForm.Designer.cs">
+      <DependentUpon>PacientStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SelectDoctorForm.cs">
       <SubType>Form</SubType>
@@ -234,6 +246,9 @@
     <EmbeddedResource Include="AddSalaryForm.resx">
       <DependentUpon>AddSalaryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FeedbackForm.resx">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PacientsForm.resx">
       <DependentUpon>PacientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacientStatusForm.resx">
+      <DependentUpon>PacientStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectDoctorForm.resx">
       <DependentUpon>SelectDoctorForm.cs</DependentUpon>

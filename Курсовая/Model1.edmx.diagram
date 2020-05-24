@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="hospitalModel.doctor" Width="1.5" PointX="3.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="hospitalModel.feedback" Width="1.5" PointX="1" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="hospitalModel.otchet_zp" Width="1.5" PointX="3.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="hospitalModel.pacient" Width="1.5" PointX="1" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hospitalModel.pacient" Width="1.5" PointX="1" PointY="3.25" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

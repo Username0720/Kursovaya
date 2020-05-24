@@ -14,6 +14,7 @@ namespace Курсовая
     {
         public hospitalEntities db = new hospitalEntities();
         public List<doctor> doctors = new List<doctor>();
+        public List<otchet_zp> zp = new List<otchet_zp>();
 
         public BuhgalterForm()
         {
@@ -26,22 +27,9 @@ namespace Курсовая
         {
             if (Application.OpenForms.Count == 2)
             {
-                //doctor item = query.First(w => w.surname.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
-                //otchet_zp zp = query.First(w => w.surname.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
-                //AddSalaryForm s = new AddSalaryForm();
-                //s.Owner = this;
-                //s.Show();
-            }
-            else Application.OpenForms[2].Focus();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.Count == 2)
-            {
-                //AddSalaryForm s = new AddSalaryForm();
-                //s.Owner = this;
-                //s.Show();
+                ReportsForm r = new ReportsForm();
+                r.Owner = this;
+                r.Show();
             }
             else Application.OpenForms[2].Focus();
         }
@@ -50,9 +38,12 @@ namespace Курсовая
         {
             if (Application.OpenForms.Count == 2)
             {
-                ReportsForm r = new ReportsForm();
-                r.Owner = this;
-                r.Show();
+                List<otchet_zp> query = (from z in db.otchet_zp
+                                      select z).ToList();
+                otchet_zp item = query.First(w => w.id_doctor.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                AddSalaryForm s = new AddSalaryForm(item);
+                s.Owner = this;
+                s.Show();
             }
             else Application.OpenForms[2].Focus();
         }

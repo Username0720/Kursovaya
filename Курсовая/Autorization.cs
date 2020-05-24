@@ -52,7 +52,6 @@ namespace Курсовая
                                        select p).ToList();
                 StreamReader pac = new StreamReader(@"pacients.txt");
                 string str;
-                int i;
                 while ((str = pac.ReadLine()) != null)
                 {
 
@@ -73,7 +72,6 @@ namespace Курсовая
                                        select d).ToList();
                 StreamReader doc = new StreamReader(@"doctors.txt");
                 string str1;
-                int ii;
                 while ((str1 = doc.ReadLine()) != null)
                 {
                     Autorization user = new Autorization(str1);
