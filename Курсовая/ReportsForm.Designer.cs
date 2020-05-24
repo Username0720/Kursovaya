@@ -52,7 +52,7 @@
             this.MinimumSize = new System.Drawing.Size(300, 250);
             this.Name = "ReportsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReportsForm";
+            this.Text = "Отчеты";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

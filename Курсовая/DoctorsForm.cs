@@ -59,7 +59,7 @@ namespace Курсовая
 
             if (dataGridView1.SelectedCells.Count == 1)
             {
-                if (Application.OpenForms.Count == 1)
+                if (Application.OpenForms.Count == 2)
                 {
                     pacient item = query.First(w => w.surname.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
 
@@ -67,7 +67,7 @@ namespace Курсовая
                     editP.Owner = this;
                     editP.Show();
                 }
-                else Application.OpenForms[0].Focus();
+                else Application.OpenForms[1].Focus();
             }
         }
     }

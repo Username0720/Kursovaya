@@ -122,7 +122,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "FeedbackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FeedbackForm";
+            this.Text = "Отзыв";
             this.ResumeLayout(false);
             this.PerformLayout();
 

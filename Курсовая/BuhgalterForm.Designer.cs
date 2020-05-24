@@ -94,6 +94,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button2);
             this.Name = "BuhgalterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Бухгалтерия";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -220,6 +220,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Name = "AddPacientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Внесение данных";
             this.ResumeLayout(false);
             this.PerformLayout();

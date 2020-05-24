@@ -73,7 +73,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(637, 399);
             this.dataGridView1.TabIndex = 9;
             // 
-            // SelectDoctorFrom
+            // SelectDoctorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,7 +82,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "SelectDoctorFrom";
+            this.Name = "SelectDoctorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Запись на прием к врачу";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

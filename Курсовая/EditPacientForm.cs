@@ -26,8 +26,6 @@ namespace Курсовая
             textBox4.Text = item.polis.ToString();
             textBox5.Text = item.passport.ToString();
             textBox6.Text = item.addres.ToString();
-            textBox7.Text = item.login.ToString();
-            textBox8.Text = item.pas.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -44,8 +42,6 @@ namespace Курсовая
             result.polis =    textBox4.Text.ToString();
             result.passport = textBox5.Text.ToString();
             result.addres =   textBox6.Text.ToString();
-            result.login =    textBox7.Text.ToString();
-            result.pas =      textBox8.Text.ToString();
 
             ((AdminForm)Owner).pacients = ((AdminForm)Owner).db.pacient.OrderBy(o => o.id_pacient).ToList();
 

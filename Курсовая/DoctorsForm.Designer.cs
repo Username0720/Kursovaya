@@ -125,6 +125,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Name = "DoctorsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Личный кабинет доктора";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

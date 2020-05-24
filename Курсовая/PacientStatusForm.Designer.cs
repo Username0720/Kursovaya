@@ -70,7 +70,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "PacientStatusForm";
-            this.Text = "PacientStatusForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Состояние пациента";
             this.ResumeLayout(false);
             this.PerformLayout();
 

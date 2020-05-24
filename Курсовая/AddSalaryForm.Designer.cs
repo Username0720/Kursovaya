@@ -155,7 +155,8 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
             this.Name = "AddSalaryForm";
-            this.Text = "FillSalaryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "формирование отчета";
             this.ResumeLayout(false);
             this.PerformLayout();
 

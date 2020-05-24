@@ -30,7 +30,7 @@ namespace Курсовая
 
             if (dataGridView1.SelectedCells.Count == 1)
             {
-                if (Application.OpenForms.Count == 2)
+                if (Application.OpenForms.Count == 3)
                 {
                     doctor item = query.First(w => w.surname.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
 
@@ -38,7 +38,7 @@ namespace Курсовая
                     f.Owner = this;
                     f.Show();
                 }
-                else Application.OpenForms[1].Focus();
+                else Application.OpenForms[2].Focus();
             }
         }
 
@@ -49,7 +49,7 @@ namespace Курсовая
 
             if (dataGridView1.SelectedCells.Count == 1)
             {
-                if (Application.OpenForms.Count == 2)
+                if (Application.OpenForms.Count == 3)
                 {
                     pacient item = query.First(w => w.surname.ToString() == dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
 
@@ -57,7 +57,7 @@ namespace Курсовая
                     f.Owner = this;
                     f.Show();
                 }
-                else Application.OpenForms[1].Focus();
+                else Application.OpenForms[2].Focus();
             }
         }
 
